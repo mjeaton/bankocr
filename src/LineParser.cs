@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace BankOCR
@@ -9,12 +10,8 @@ namespace BankOCR
         {
             var segmentParser = new SegmentParser();
             List<string> segments = parseLineIntoSegments(line1, line2, line3);
-            string output = "";
-            foreach(var s in segments) 
-            {
-                output  += segmentParser.GetNumberForSegment(s);
-            }
-            return output;
+
+            return string.Join("", segments.Select(segmentParser.GetNumberForSegment));
         }
 
         // candidate for refactoring
