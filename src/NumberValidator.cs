@@ -11,6 +11,8 @@ namespace BankOCR
 
             var chars = number.ToCharArray();
 
+            // range?
+
             var d1 = char.GetNumericValue(chars[8]);
             var d2 = char.GetNumericValue(chars[7]);
             var d3 = char.GetNumericValue(chars[6]);
