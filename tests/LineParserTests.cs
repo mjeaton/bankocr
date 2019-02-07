@@ -18,7 +18,6 @@ namespace BankOCR.Tests
             };
 
             var result = parser.ParseLineIntoNumbers(data[0], data[1], data[2]);
-
             Assert.True(result == "123456789");
         }
 
