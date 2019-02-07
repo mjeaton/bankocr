@@ -5,7 +5,7 @@ namespace BankOCR.Tests
     public class NumberValidatorTests
     {
         [Fact]
-        public void Short_Number_Should_Return_IsValid_Falswe()
+        public void Short_Number_Should_Return_IsValid_False()
         {
             var validator = new NumberValidator();
 
