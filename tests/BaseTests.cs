@@ -1,10 +1,10 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace tests
+namespace BankOCR.Tests
 {
-    public class UnitTest1
+    public class BaseTests
     {
         [Fact]
         public void Valid_line_should_return_9_segments()
