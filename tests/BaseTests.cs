@@ -65,5 +65,33 @@ namespace BankOCR.Tests
 
             Assert.True(result == "1");
         }
+
+        [Fact]
+        public void Valid_Number_Checksum_Should_Equal_Zero()
+        {
+            // 3  4  5  8  8  2  8  6  5
+            // -------------------------
+            // 9  8  7  6  5  4  3  2  1
+            //var number = "345882865";
+
+            // checksum calculation:
+            // (d1 + 2*d2 + 3*d3 +... +9*d9) mod 11 = 0
+
+            var checksum = (5 + (2*6) + (3*8) + (4*2) + (5*8) + (6*8) + (7*5) + (8*4) + (9*3)) % 11;
+            Assert.True(checksum == 0);
+        }
+
+        [Fact]
+        public void Invalid_Number_Checksum_Should_Not_Equal_Zero()
+        {
+            //var number = "923456789";
+
+            // checksum calculation:
+            // (d1 + 2*d2 + 3*d3 +... +9*d9) mod 11 = 0
+
+            var checksum = (9 + (2*8) + (3*7) + (4*6) + (5*5) + (6*4) + (7*3) + (8*2) + (9*9)) % 11;
+            Assert.False(checksum == 0);
+        }
+
     }
 }
