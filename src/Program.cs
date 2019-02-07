@@ -17,6 +17,7 @@ namespace BankOCR
             var lines = File.ReadAllLines("../data.txt");
             var numbers = new List<string>();
             var parser = new LineParser();
+            var validator = new NumberValidator();
             for(int x = 0; x <= lines.Length - 1; x += 4) 
             {
                 // each number consists of 4 lines - 3 with data and a blank line at the end
@@ -31,10 +32,6 @@ namespace BankOCR
             }
 
             System.Console.WriteLine("Initial results:");
-            foreach(var n in numbers)
-            {
-                System.Console.WriteLine(n);
-            }
 
             // Story 2
             // validation of numbers
@@ -43,6 +40,23 @@ namespace BankOCR
             // Story 3
             // formatted output file
             // ILL, ERR and happy path
+
+            var outputFileName = "output.txt";
+            // write to an output file (console for now)
+            foreach(var n in numbers)
+            {
+                if(validator.IsValid(n))
+                {
+                    System.Console.WriteLine(n);
+                } else if(n.Contains('?'))
+                {
+                    System.Console.WriteLine($"{n} ILL");
+                } else 
+                {
+                    System.Console.WriteLine($"{n} ERR");
+                }
+            }
+
 
             // Story 4
             // deal with ambiguous numbers
