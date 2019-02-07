@@ -7,7 +7,7 @@ namespace BankOCR
         {
             if(segment == " _ \r\n" +
                           "| |\r\n" +
-                          " _\r\n"
+                          "|_|"
             )
                 return "0";
 
