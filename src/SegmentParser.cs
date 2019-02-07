@@ -65,7 +65,7 @@ namespace BankOCR
             )
                 return "9";
             
-            return "";
+            return "?";
         }
     }
 }
