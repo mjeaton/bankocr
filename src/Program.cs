@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace BankOCR
@@ -14,6 +15,8 @@ namespace BankOCR
             // Need a way to read the file, parse it into chunks (4 lines) so it can then be reduced to individual
             // segments that will be converted into numbers.
             var lines = File.ReadAllLines("../data.txt");
+            var numbers = new List<string>();
+            var parser = new LineParser();
             for(int x = 0; x <= lines.Length - 1; x += 4) 
             {
                 // each number consists of 4 lines - 3 with data and a blank line at the end
@@ -21,9 +24,16 @@ namespace BankOCR
                 var line2 = lines[x + 1];
                 var line3 = lines[x + 2];
                 
-                System.Console.WriteLine($"{line1}\r\n{line2}\r\n{line3}");
+                //System.Console.WriteLine($"{line1}\r\n{line2}\r\n{line3}");
 
                 // hand off the line to something that will cut it into individual segments and then convert each segment into a number
+                numbers.Add(parser.ParseLineIntoNumbers(line1, line2, line3));
+            }
+
+            System.Console.WriteLine("Initial results:");
+            foreach(var n in numbers)
+            {
+                System.Console.WriteLine(n);
             }
 
             // Story 2
