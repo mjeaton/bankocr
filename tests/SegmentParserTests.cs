@@ -25,10 +25,7 @@ namespace BankOCR.Tests
                           "|_ ";
 
             var result = parser.GetNumberForSegment(segment);
-
-            System.Console.WriteLine(result);
             Assert.True(result == "2");
         }
-
     }
 }
