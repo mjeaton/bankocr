@@ -59,7 +59,11 @@ namespace BankOCR.Tests
                       "  |\r\n" +
                       "  |";
 
-            Assert.True(digitOne == one);
+            var result = "";
+            if(digitOne == one)
+                result = "1";
+
+            Assert.True(result == "1");
         }
     }
 }
